@@ -124,11 +124,11 @@ Hello world!
 
 Цели
 ----
-- [ ] Описан контракт класса ConsolePrinter в javadoc-комментариях
+- [ ] Описан контракт класса com.tcs.edu.printer.ConsolePrinter в javadoc-комментариях
 
 Задачи
 ------
-- [ ] В IDEA откройте ConsolePrinter
+- [ ] В IDEA откройте com.tcs.edu.printer.ConsolePrinter
 - [ ] Добавьте javadoc-комментарий, описывающий 
 - назначение класса
 - назначение метода
@@ -139,7 +139,7 @@ Hello world!
 Как проверить
 -------------
 - [ ] В IDEA откройте класс Application
-- [ ] Найдите использование класса ConsolePrinter
+- [ ] Найдите использование класса com.tcs.edu.printer.ConsolePrinter
 - [ ] Активируйте функцию Quick Documentation
 
 Отправка на ревью
@@ -166,8 +166,8 @@ Hello world!
 Задачи
 ------
 - [ ] Добавить для класса `Application` директиву `package com.tcs.edu`
-- [ ] Добавить для класса `ConsolePrinter` директиву `package com.tcs.edu.printer`
-- [ ] В классе `Application` использовать второй класс по его полному имени: добавить директиву `import com.tcs.edu.printer.ConsolePrinter`
+- [ ] Добавить для класса `com.tcs.edu.printer.ConsolePrinter` директиву `package com.tcs.edu.printer`
+- [ ] В классе `Application` использовать второй класс по его полному имени: добавить директиву `import com.tcs.edu.printer.com.tcs.edu.printer.ConsolePrinter`
 - [ ] Выполните из консоли запуск приложения
 ```shell
  java -classpath target/app-1.0-SNAPSHOT.jar com.tcs.edu.Application
