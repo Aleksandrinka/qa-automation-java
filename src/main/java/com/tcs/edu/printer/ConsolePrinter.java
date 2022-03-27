@@ -1,3 +1,5 @@
+package com.tcs.edu.printer;
+
 /**
  * Класс для работы с выводом в консоль
  * @author a.chvarova
