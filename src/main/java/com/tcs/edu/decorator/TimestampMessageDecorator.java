@@ -18,7 +18,7 @@ public class TimestampMessageDecorator {
      * @return к полученной на вход строке добавляется счетчик выведенных сообщений, текущая дата и время
      */
     public static String decorate(String message) {
-        final var decoratedMessage = messageCount.toString() + " " + Instant.now() + " " + message;
+        var decoratedMessage = messageCount.toString() + " " + Instant.now() + " " + message;
         return decoratedMessage;
     }
 }
