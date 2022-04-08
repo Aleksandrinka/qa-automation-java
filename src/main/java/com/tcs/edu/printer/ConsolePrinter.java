@@ -16,7 +16,6 @@ public class ConsolePrinter {
      * @param message сообщение для вывода в консоль
      */
     public static void print(String message) {
-        TimestampMessageDecorator.messageCount++;
         System.out.println(TimestampMessageDecorator.decorate(message));
     }
 }
