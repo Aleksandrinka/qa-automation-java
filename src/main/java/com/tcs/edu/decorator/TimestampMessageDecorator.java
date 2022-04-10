@@ -8,16 +8,18 @@ import java.time.Instant;
  * @author a.chvarova
  */
 public class TimestampMessageDecorator {
+    public static Integer messageCount = 0;
+
 
     /**
      * Метод для добавления текущих даты и времени к полученному сообщению
      *
      * @param message строка для модификации
-     * @return к полученной на вход строке добавляется текущая дата и время с помощью Instant.now()
+     * @return к полученной на вход строке добавляется счетчик выведенных сообщений, текущая дата и время
      */
-
     public static String decorate(String message) {
-        String decoratedMessage = Instant.now() + " " + message;
+        messageCount++;
+        final var decoratedMessage = messageCount.toString() + " " + Instant.now() + " " + message;
         return decoratedMessage;
     }
 }
