@@ -22,7 +22,7 @@ public class TimestampMessageDecorator {
         messageCount++;
         String format = "%s %s %s";
         if (messageCount % PAGE_SIZE == 0){
-            format = format + "\n---";
+            format = String.format("%s%s", format, "\n---");
         }
         final var decoratedMessage = String.format(format, messageCount, Instant.now(), message);
         return decoratedMessage;
