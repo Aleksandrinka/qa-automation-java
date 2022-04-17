@@ -16,11 +16,13 @@ public class MessageService {
      * Метод пропускает полученное сообщение через имеющиеся декораторы сообщений, после чего направляет итоговое сообщение принтеру
      *
      * @param level   Уровень важности сообщения
-     * @param message Сообщение
+     * @param messages Набор сообщений для печати
      */
-    public static void process(Severity level, String message) {
-        final String decoratedMessage = TimestampMessageDecorator.decorate(message);
-        final String severityDecoratedMessage = SeverityDecorator.decorate(level, decoratedMessage);
-        ConsolePrinter.print(severityDecoratedMessage);
+    public static void process(Severity level, String... messages) {
+        for (String currentMessage : messages){
+            final String decoratedMessage = TimestampMessageDecorator.decorate(currentMessage);
+            final String severityDecoratedMessage = SeverityDecorator.decorate(level, decoratedMessage);
+            ConsolePrinter.print(severityDecoratedMessage);
+        }
     }
 }
