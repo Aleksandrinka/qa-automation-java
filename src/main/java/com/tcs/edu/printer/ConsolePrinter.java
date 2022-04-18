@@ -1,7 +1,5 @@
 package com.tcs.edu.printer;
 
-import com.tcs.edu.decorator.TimestampMessageDecorator;
-
 /**
  * Класс для работы с выводом в консоль
  *
@@ -16,6 +14,6 @@ public class ConsolePrinter {
      * @param message сообщение для вывода в консоль
      */
     public static void print(String message) {
-        System.out.println(TimestampMessageDecorator.decorate(message));
+        System.out.println(message);
     }
 }
