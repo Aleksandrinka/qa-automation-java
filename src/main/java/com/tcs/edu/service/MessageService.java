@@ -18,7 +18,9 @@ public class MessageService {
      * @param level   Уровень важности сообщения
      * @param messages Набор сообщений для печати
      */
-    public static void process(Severity level, String... messages) {
+    public static void process(Severity level, String message, String... messages) {
+        ConsolePrinter.print(SeverityDecorator.decorate(level, TimestampMessageDecorator.decorate(message)));
+
         for (String currentMessage : messages){
             final String decoratedMessage = TimestampMessageDecorator.decorate(currentMessage);
             final String severityDecoratedMessage = SeverityDecorator.decorate(level, decoratedMessage);
