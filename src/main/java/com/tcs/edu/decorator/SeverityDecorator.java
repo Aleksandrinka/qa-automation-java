@@ -24,13 +24,13 @@ public class SeverityDecorator {
                 severityString = "(!!!)";
                 break;
             case MINOR:
-                severityString = "()   ";
+                severityString = "()";
                 break;
             case REGULAR:
-                severityString = "(!)  ";
+                severityString = "(!)";
                 break;
         }
 
-        return String.format("%s %s", severityString, message);
+        return String.format("%s %s", message, severityString);
     }
 }
