@@ -19,12 +19,12 @@ public class MessageService {
      * @param messages Набор сообщений для печати
      */
     public static void process(Severity level, String message, String... messages) {
-        ConsolePrinter.print(SeverityDecorator.decorate(level, TimestampMessageDecorator.decorate(message)));
+        ConsolePrinter.print(TimestampMessageDecorator.decorate(SeverityDecorator.decorate(level, message)));
 
         for (String currentMessage : messages){
-            final String decoratedMessage = TimestampMessageDecorator.decorate(currentMessage);
-            final String severityDecoratedMessage = SeverityDecorator.decorate(level, decoratedMessage);
-            ConsolePrinter.print(severityDecoratedMessage);
+            final String severityDecoratedMessage = SeverityDecorator.decorate(level, currentMessage);
+            final String timestampDecoratedMessage = TimestampMessageDecorator.decorate(severityDecoratedMessage);
+            ConsolePrinter.print(timestampDecoratedMessage);
         }
     }
 }
