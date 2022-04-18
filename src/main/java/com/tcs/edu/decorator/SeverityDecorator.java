@@ -14,7 +14,7 @@ public class SeverityDecorator {
      *
      * @param level   Уровень важности сообщения
      * @param message Сообщение
-     * @return decoratedMessage - итоговое сообщение, содержащее уровень его важности
+     * @return Итоговое сообщение, содержащее уровень его важности
      * @see Severity
      */
     public static String decorate(Severity level, String message) {
@@ -30,7 +30,7 @@ public class SeverityDecorator {
                 severityString = "(!)  ";
                 break;
         }
-        String decoratedMessage = String.format("%s %s", severityString, message);
-        return decoratedMessage;
+
+        return String.format("%s %s", severityString, message);
     }
 }
