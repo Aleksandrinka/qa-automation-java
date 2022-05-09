@@ -42,27 +42,19 @@ public class MessageService {
             for (int currentMessageCount = messages.length - 1; currentMessageCount >= 0; currentMessageCount--) {
                 Message currentMessage = messages[currentMessageCount];
                 if (currentMessage.getBody() != null) {
-                    final String orderDecoratedMessage =
-                            orderDecorator.decorate(currentMessage.getBody(), currentMessageCount + 1);
-                    final String severityDecoratedMessage =
-                            severityDecorator.decorate(currentMessage.getSeverity(), orderDecoratedMessage);
-                    final String timestampDecoratedMessage =
-                            timestampMessageDecorator.decorate(severityDecoratedMessage);
-                    consolePrinter.print(timestampDecoratedMessage);
+                    final String decoratedMessage =
+                            getAllDecorations(currentMessage, currentMessageCount + 1);
+                    consolePrinter.print(decoratedMessage);
                 }
             }
         } else {
             Integer currentMessageCount = 1;
             for (Message currentMessage : messages) {
                 if (currentMessage != null) {
-                    final String orderDecoratedMessage =
-                            orderDecorator.decorate(currentMessage.getBody(), currentMessageCount);
-                    final String severityDecoratedMessage =
-                            severityDecorator.decorate(currentMessage.getSeverity(), orderDecoratedMessage);
-                    final String timestampDecoratedMessage =
-                            timestampMessageDecorator.decorate(severityDecoratedMessage);
+                    final String decoratedMessage =
+                            getAllDecorations(currentMessage, currentMessageCount);
                     currentMessageCount++;
-                    consolePrinter.print(timestampDecoratedMessage);
+                    consolePrinter.print(decoratedMessage);
                 }
             }
         }
@@ -90,13 +82,9 @@ public class MessageService {
                     Message currentMessage = messages[currentMessageCount];
                     if (currentMessage.getBody() != null & !MessageUtils.isMessageAlreadyInArray(currentMessage.getBody(), alreadyPrintedMessages)) {
                         alreadyPrintedMessages[currentMessageCount] = currentMessage.getBody();
-                        final String orderDecoratedMessage =
-                                orderDecorator.decorate(currentMessage.getBody(), currentMessageCount + 1);
-                        final String severityDecoratedMessage =
-                                severityDecorator.decorate(message.getSeverity(), orderDecoratedMessage);
-                        final String timestampDecoratedMessage =
-                                timestampMessageDecorator.decorate(severityDecoratedMessage);
-                        consolePrinter.print(timestampDecoratedMessage);
+                        final String decoratedMessage =
+                                getAllDecorations(currentMessage, currentMessageCount + 1);
+                        consolePrinter.print(decoratedMessage);
                     }
                 }
             } else {
@@ -104,19 +92,25 @@ public class MessageService {
                 for (Message currentMessage : messages) {
                     if (currentMessage.getBody() != null & !MessageUtils.isMessageAlreadyInArray(currentMessage.getBody(), alreadyPrintedMessages)) {
                         alreadyPrintedMessages[currentMessageCount] = currentMessage.getBody();
-                        final String orderDecoratedMessage =
-                                orderDecorator.decorate(currentMessage.getBody(), currentMessageCount);
-                        final String severityDecoratedMessage =
-                                severityDecorator.decorate(message.getSeverity(), orderDecoratedMessage);
-                        final String timestampDecoratedMessage =
-                                timestampMessageDecorator.decorate(severityDecoratedMessage);
+                        final String decoratedMessage =
+                                getAllDecorations(currentMessage, currentMessageCount);
                         currentMessageCount++;
-                        consolePrinter.print(timestampDecoratedMessage);
+                        consolePrinter.print(decoratedMessage);
                     }
                 }
             }
         } else {
             new MessageService().process(order, message, messages);
         }
+    }
+
+    public String getAllDecorations(Message message, Integer number){
+        final String orderDecoratedMessage =
+                orderDecorator.decorate(message.getBody(), number);
+        final String severityDecoratedMessage =
+                severityDecorator.decorate(message.getSeverity(), orderDecoratedMessage);
+        final String timestampMessageDecoratedMessage =
+                timestampMessageDecorator.decorate(severityDecoratedMessage);
+        return timestampMessageDecoratedMessage;
     }
 }
