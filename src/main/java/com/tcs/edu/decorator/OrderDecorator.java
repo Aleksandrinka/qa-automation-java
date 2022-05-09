@@ -17,7 +17,7 @@ public class OrderDecorator {
      * @return Итоговое сообщение, содержащее уровень его важности
      * @see Severity
      */
-    public static String decorate(String message, Integer messageOrderNumber) {
+    public String decorate(String message, Integer messageOrderNumber) {
         return String.format("%s %s", message, messageOrderNumber);
     }
 }

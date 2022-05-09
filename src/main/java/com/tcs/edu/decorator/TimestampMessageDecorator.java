@@ -1,5 +1,7 @@
 package com.tcs.edu.decorator;
 
+import com.tcs.edu.domain.Message;
+
 import java.time.Instant;
 
 /**
@@ -18,7 +20,7 @@ public class TimestampMessageDecorator {
      * @param message строка для модификации
      * @return к полученной на вход строке добавляется счетчик выведенных сообщений, текущая дата и время
      */
-    public static String decorate(String message) {
+    public String decorate(String message) {
         messageCount++;
         String format = "%s %s %s";
         if (messageCount % PAGE_SIZE == 0) {

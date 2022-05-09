@@ -13,7 +13,7 @@ public class ConsolePrinter {
      *
      * @param message сообщение для вывода в консоль
      */
-    public static void print(String message) {
+    public void print(String message) {
         System.out.println(message);
     }
 }
