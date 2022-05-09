@@ -1,6 +1,5 @@
 package com.tcs.edu.domain;
 
-import com.tcs.edu.enums.MessageOrder;
 import com.tcs.edu.enums.Severity;
 
 public class Message {

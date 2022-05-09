@@ -16,10 +16,24 @@ import com.tcs.edu.util.MessageUtils;
  */
 
 public class MessageService {
-    ConsolePrinter consolePrinter = new ConsolePrinter();
-    TimestampMessageDecorator timestampMessageDecorator = new TimestampMessageDecorator();
-    SeverityDecorator severityDecorator = new SeverityDecorator();
-    OrderDecorator orderDecorator = new OrderDecorator();
+    ConsolePrinter consolePrinter;
+    TimestampMessageDecorator timestampMessageDecorator;
+    SeverityDecorator severityDecorator;
+    OrderDecorator orderDecorator;
+
+    public MessageService() {
+        this.consolePrinter = new ConsolePrinter();
+        this.timestampMessageDecorator = new TimestampMessageDecorator();
+        this.severityDecorator = new SeverityDecorator();
+        this.orderDecorator = new OrderDecorator();
+    }
+
+    public MessageService(ConsolePrinter consolePrinter, TimestampMessageDecorator timestampMessageDecorator, SeverityDecorator severityDecorator, OrderDecorator orderDecorator) {
+        this.consolePrinter = consolePrinter;
+        this.timestampMessageDecorator = timestampMessageDecorator;
+        this.severityDecorator = severityDecorator;
+        this.orderDecorator = orderDecorator;
+    }
 
     /**
      * Метод пропускает полученное сообщение через имеющиеся декораторы сообщений, после чего направляет итоговое сообщение принтеру
