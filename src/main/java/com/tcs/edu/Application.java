@@ -27,5 +27,8 @@ class Application {
                 new Message("Hello again", Severity.MINOR), new Message("Hello again", Severity.MINOR),
                 new Message("Hello again2", Severity.MINOR), new Message("Hello again2", Severity.MINOR));
 
+        System.out.println(new Message("Hello again2", Severity.MINOR));
+        System.out.println((new Message("Hello again2", Severity.MINOR)).equals(new Message("Hello again2", Severity.MINOR)));
+        System.out.println((new Message("Hello again2", Severity.MINOR)).equals(new Message("Hello again2", Severity.MAJOR)));
     }
 }

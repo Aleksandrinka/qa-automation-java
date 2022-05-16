@@ -118,7 +118,7 @@ public class MessageService {
         }
     }
 
-    public String getAllDecorations(Message message, Integer number){
+    public String getAllDecorations(Message message, Integer number) {
         final String orderDecoratedMessage =
                 orderDecorator.decorate(message.getBody(), number);
         final String severityDecoratedMessage =
