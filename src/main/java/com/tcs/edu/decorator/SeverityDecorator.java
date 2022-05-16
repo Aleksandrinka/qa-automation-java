@@ -17,7 +17,7 @@ public class SeverityDecorator {
      * @return Итоговое сообщение, содержащее уровень его важности
      * @see Severity
      */
-    public static String decorate(Severity level, String message) {
+    public String decorate(Severity level, String message) {
         String severityString = null;
         switch (level) {
             case MAJOR:
